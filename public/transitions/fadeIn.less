@@ -1,0 +1,43 @@
+/**
+
+This structure allows for this class to be
+directly passed into transistionName in ReactCSSTransistionGroup
+using css module
+
+**/
+@timing:1500ms ease-in;
+
+.fade-show() {
+  opacity: 1;
+}
+
+.fade-hide() {
+  opacity: 0.01;
+}
+
+.enter {
+  transition: opacity @timing;
+  .fade-hide();
+}
+
+.enterActive {
+  .fade-show();
+}
+
+.leave {
+  transition: opacity @timing;
+  .fade-show();
+}
+
+.leaveActive {
+  .fade-hide();
+}
+
+.appear {
+  transition: opacity @timing;
+  .fade-hide();
+}
+
+.appearActive {
+  .fade-show();
+}
