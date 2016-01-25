@@ -5,7 +5,7 @@ Some helper tools for making react css animation use css 2 modules.
 ## *In Development Use at your own risk*
 
 ##Demo
-See it in action [here](http://jspears.github.io/react-css-module-animations)
+See it in action [here](http://jspears.github.io/react-css-module-animations/)
 
 Or run it 
 
