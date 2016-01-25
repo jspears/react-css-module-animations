@@ -5,6 +5,8 @@ var lifecycle = process.env['npm_lifecycle_event'];
 var isPrepublish = lifecycle === 'prepublish';
 var isKarma = process.env['NODE_ENV'] === 'test';
 var isTestDist = lifecycle === 'test-dist';
+var cssxOpts = {};
+//var cssmodule = require('postcss-modules');
 
 var config = {
     devtool: (isPrepublish ? '#source-map' : "#inline-source-map"),
@@ -27,13 +29,9 @@ var config = {
         colors: true,
         reasons: true
     },
-    postcss: [
-        require('autoprefixer'),
-        require('postcss-color-rebeccapurple')
-    ],
     module: {
         loaders: [
-            {
+           {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 //do this to prevent babel from translating everything.
@@ -56,12 +54,13 @@ var config = {
             {
                 test: /\.css$/,
                 include: [join('src'), join('public')],
-                loader: ExtractTextPlugin.extract('style-loader', 'css!postcss')
+                loader: ExtractTextPlugin.extract('style-loader', join('css-transition-loader')+'!css?modules&importLoaders=1&localIdentName=[hash:base64:5]_[name]__[local]')
             },
             {
                 test: /\.less$/,
                 include: [join('src'), join('public')],
-                loader: ExtractTextPlugin.extract('style-loader', 'css?modules&importLoaders=1&localIdentName=[hash:base64:5]_[name]__[local]!postcss!less')
+                loader: ExtractTextPlugin.extract('style-loader', join('css-transition-loader')+'!css?modules&importLoaders=1&localIdentName=[hash:base64:5]_[name]__[local]!less')
+             //   loader: ExtractTextPlugin.extract('style-loader', join('what-loader')+'!postcss!less')
             }]
 
     },

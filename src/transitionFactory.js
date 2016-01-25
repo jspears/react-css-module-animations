@@ -4,19 +4,16 @@ import React from "react";
 import EventCSSTransitionGroup from './EventCSSTransitionGroup.jsx';
 import capitalize from 'lodash/string/capitalize';
 
-export const DEF_OPTIONS = {
-    transitionAppearTimeout: 1500,
-    transitionLeaveTimeout: 1500,
-    transitionEnterTimeout: 1500
-};
-
 export default function transitionFactory(less, options) {
-    options = options || DEF_OPTIONS;
-
+    options = options || {};
+    const delay = options.delay || 80;
     const rest = ['enter', 'leave', 'appear'].reduce((ret, key)=> {
-        const timeoutKey = `transition${capitalize(key)}Timeout`;
+        const transitionKey = `transition${capitalize(key)}`;
+
         if (less[key]) {
-            ret[timeoutKey] = options[timeoutKey] || DEF_OPTIONS[timeoutKey];
+            const lessTimeout = less[`@${key}Timeout`];
+            ret[`${transitionKey}Timeout`] = lessTimeout ? lessTimeout + delay : options[`${transitionKey}Timeout`];
+            ret[transitionKey] = less[key];
         }
         return ret;
     }, {});

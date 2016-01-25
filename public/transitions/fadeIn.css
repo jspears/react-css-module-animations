@@ -1,0 +1,8 @@
+@value timeout:100;
+.enter {
+    color:red;
+}
+.enterActive {
+    color:blue;
+    timeout:timeout;
+}

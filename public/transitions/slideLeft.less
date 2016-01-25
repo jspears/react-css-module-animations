@@ -11,19 +11,17 @@ using css module
 @timing-leave: @timing;
 
 .fade-show() {
-  overflow: hidden;
-  opacity: 1;
-  transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1), opacity 1.5s ease;
-  max-height: 1000px;
+  transform: translateX(0);
+  transition: transform 1s ease-in-out;
 }
 
 .fade-hide() {
-  opacity: 0.01;
-  transition: max-height 1.5s ease, opacity 1.5s ease;
-  max-height: 0;
+  transform:  translateX(100%);
+  transition: transform 1s ease-in-out;
 }
 
 .enter {
+  overflow: hidden;
   .fade-hide();
 }
 
@@ -32,6 +30,8 @@ using css module
 }
 
 .leave {
+  overflow: hidden;
+
   .fade-show();
 }
 
@@ -40,6 +40,8 @@ using css module
 }
 
 .appear {
+  overflow: hidden;
+
   .fade-hide();
 }
 
