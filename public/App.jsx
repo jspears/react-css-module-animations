@@ -58,7 +58,8 @@ export default class App extends Component {
 
         return <div>
             <h3>react-css-module-animations</h3>
-            <p>Some helper tools for making react css animation use css 2 modules.<br/></p>
+            <p>Some tools for making react css animation use css 2 modules.<br/> </p>
+
             <Example label="Fade" component={FadeIn}/>
             <Example label="Slide Left" component={SlideLeft}/>
             <Example label="Slide Right" component={SlideRight}/>
