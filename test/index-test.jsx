@@ -1,7 +1,5 @@
-import expect from "expect";
+describe('Index', function(){
+   it('should render', function(){
 
-describe("index.jsx", function(){
-
-
-
+   })
 });

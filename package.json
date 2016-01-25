@@ -53,7 +53,7 @@
   "scripts": {
     "karma": "NODE_ENV=test karma start --no-single-run --colors --auto-watch",
     "mocha": "NODE_ENV=test mocha test/*-test.js",
-    "test": "NODE_ENV=test karma start --single-run --browsers Firefox",
+    "test": "npm run mocha && NODE_ENV=test karma start --single-run --browsers Firefox",
     "test-dist": "npm run dist && NODE_ENV=test karma start --single-run --browsers Firefox",
     "hot": "NODE_ENV=development webpack-dev-server --port 8888 --hot --inline --config ./webpack.config.js --entry ./public/index.jsx --output-filename=app.entry.js",
     "demo": "NODE_ENV=production webpack -p --output-path .build --entry ./public/index.jsx --output-filename=app.[hash].js --config ./webpack.config.js",
